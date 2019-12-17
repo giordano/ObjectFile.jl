@@ -127,7 +127,7 @@ struct ELFSymbolRef{H<:ELFHandle} <: SymbolRef{H}
     entry::ELFSymtabEntry{H}
     idx::UInt32
 end
-function SymbolRef(syms::ELFSymbols, entry::ELFSymtabEntry, idx)
+function SymbolRef(syms::ELFSymbols{H}, entry::ELFSymtabEntry{H}, idx) where {H<:ELFHandle}
     return ELFSymbolRef(syms, entry, UInt32(idx))
 end
 
